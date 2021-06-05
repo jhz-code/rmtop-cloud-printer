@@ -113,6 +113,7 @@ class CloudPrinter extends Migrator
         $table = $this->table(config('rmtop.'.$default.'.database.cloud_printer'));
         $table->addColumn('print_title', 'string', ['limit' => 100,'default'=>'','comment'=>'打印机名称'])
             ->addColumn('print_sn', 'string', ['limit' => 100,'default'=>'','comment'=>'打印机编号'])
+            ->addColumn('print_type', 'string', ['limit' => 50,'default'=>'','comment'=>'打印机'])
             ->addColumn('print_state', 'int', ['limit' => 1,'default'=>'','comment'=>'1 正常  2关闭'])
             ->addColumn('print_online', 'int', ['limit' => 1,'default'=>'','comment'=>'1 在线  2关闭'])
             ->create();
