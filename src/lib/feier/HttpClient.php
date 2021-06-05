@@ -33,10 +33,14 @@ class HttpClient {
     var $errormsg;
     var $redirect_count = 0;
     var $cookie_host = '';
-    function __construct($host, $port=80) {
+
+
+    function __construct($host, $port = 80) {
         $this->host = $host;
         $this->port = $port;
     }
+
+
     function get($path, $data = false) {
         $this->path = $path;
         $this->method = 'GET';
@@ -45,12 +49,14 @@ class HttpClient {
         }
         return $this->doRequest();
     }
+
     function post($path, $data) {
         $this->path = $path;
         $this->method = 'POST';
         $this->postdata = $this->buildQueryString($data);
         return $this->doRequest();
     }
+
     function buildQueryString($data) {
         $querystring = '';
         if (is_array($data)) {
@@ -69,6 +75,7 @@ class HttpClient {
         }
         return $querystring;
     }
+
     function doRequest() {
         if (!$fp = @fsockopen($this->host, $this->port, $errno, $errstr, $this->timeout)) {
             switch($errno) {

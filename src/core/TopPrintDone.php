@@ -16,4 +16,13 @@ namespace RmTop\RmPrinter\core;
 class TopPrintDone
 {
 
+
+    /**
+     * @param string $type
+     * @param array $params
+     */
+     static  function printDone(string  $type ,array $params){
+
+    }
+
 }

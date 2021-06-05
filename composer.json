@@ -2,7 +2,8 @@
     "name": "rmtop/rmsf_cloud_printer",
     "description": "printer manage",
     "require": {
-        "topthink/think-migration": "^3.0"
+        "topthink/think-migration": "^3.0",
+      "ext-zlib": "*"
     },
     "autoload": {
         "psr-4": {
