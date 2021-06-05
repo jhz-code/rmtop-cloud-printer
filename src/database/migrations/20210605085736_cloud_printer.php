@@ -115,8 +115,8 @@ class CloudPrinter extends Migrator
             ->addColumn('print_sn', 'string', ['limit' => 100,'default'=>'','comment'=>'打印机编号'])
             ->addColumn('print_type', 'string', ['limit' => 50,'default'=>'','comment'=>'打印机'])
             ->addColumn('print_extra', 'string', ['limit' => 150,'default'=>'','comment'=>'打印机'])
-            ->addColumn('print_state', 'integer', ['limit' => 1,'default'=>'','comment'=>'1 正常  2关闭'])
-            ->addColumn('print_online', 'integer', ['limit' => 1,'default'=>'','comment'=>'1 在线  2关闭'])
+            ->addColumn('print_state', 'integer', ['limit' => 1,'default'=>1,'comment'=>'1 正常  2关闭'])
+            ->addColumn('print_online', 'integer', ['limit' => 1,'default'=>1,'comment'=>'1 在线  2关闭'])
             ->create();
     }
 
