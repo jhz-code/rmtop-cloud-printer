@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RmTop\lib;
+namespace RmTop\RmPrinter\lib;
 
 
 class PublishFile

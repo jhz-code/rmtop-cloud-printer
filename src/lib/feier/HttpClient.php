@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RmTop\lib\feier;
+namespace RmTop\RmPrinter\lib\feier;
 
 class HttpClient {
 

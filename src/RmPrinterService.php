@@ -1,8 +1,8 @@
 <?php
 
-namespace RmTop;
+namespace RmTop\RmPrinter;
 
-use RmTop\command\PrintFilePublish;
+use RmTop\RmPrinter\command\PrintFilePublish;
 use think\Service;
 
 /**

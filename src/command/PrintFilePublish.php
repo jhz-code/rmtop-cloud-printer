@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RmTop\command;
+namespace RmTop\RmPrinter\command;
 
 
 use RmTop\lib\PublishFile;
