@@ -18,7 +18,7 @@
     "extra": {
         "think": {
             "services": [
-                "RmTop\\RmPrintService"
+                "RmTop\\RmPrinterService"
             ]
         }
     }
