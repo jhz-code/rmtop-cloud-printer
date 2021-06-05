@@ -4,7 +4,7 @@
 namespace RmTop\RmPrinter\command;
 
 
-use RmTop\lib\PublishFile;
+use RmTop\RmPrinter\lib\PublishFile;
 use think\console\Command;
 use think\console\Input;
 use think\console\input\Argument;
