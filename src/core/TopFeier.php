@@ -35,7 +35,7 @@ class TopFeier
      * @throws Exception
      * @throws ModelNotFoundException
      */
-    function allPrinterRun(string $type,bool $job = false, array $where ,string $filed,$content,int $times){
+   static  function allPrinterRun(string $type,bool $job = false, array $where ,string $filed,$content,int $times){
         if($where){
             $printerList = PrinterModel::where(1)->field($filed)->select();
         }else{
@@ -72,7 +72,7 @@ class TopFeier
      * @throws DbException
      * @throws ModelNotFoundException
      */
-    function singlePrinter(string $type,bool $job = false,array $where,$content,int $times){
+    static function singlePrinter(string $type,bool $job = false,array $where,$content,int $times){
          $printerInfo = PrinterModel::where($where)->find();
          if($printerInfo){
              $printer = new FeierCloudPrint();
