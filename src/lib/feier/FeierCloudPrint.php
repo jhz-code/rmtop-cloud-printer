@@ -8,7 +8,6 @@ use think\Exception;
 
 class FeierCloudPrint extends FeierClient
 {
-
     public string $ip = '';
     public string $port = '';
     public string $path = "" ;
@@ -46,10 +45,10 @@ class FeierCloudPrint extends FeierClient
 
     /**
      * [修改打印机信息接口 Open_printerEdit]
-     * @param $sn
-     * @param $name
-     * @param $phonenum
-     * @return string [string]           [接口返回值]
+     * @param  [string] $sn       [打印机编号]
+     * @param  [string] $name     [打印机备注名称]
+     * @param  [string] $phonenum [打印机流量卡号码,可以不传参,但是不能为空字符串]
+     * @return [string]           [接口返回值]
      * @throws Exception
      */
     function printerEdit($sn,$name,$phonenum): string
