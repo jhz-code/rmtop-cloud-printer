@@ -35,7 +35,8 @@ class TopPrinterManage
     function addPrinter(string $print_type, string $print_title, string $print_sn,
          $print_extra,
          int $print_state,
-         int $print_online
+         int $print_online,
+         int $print_config_id
        ){
         return PrinterModel::create([
              'print_title'=>$print_title,
@@ -44,6 +45,7 @@ class TopPrinterManage
              'print_extra'=>$print_extra,
              'print_state'=>$print_state,
              'print_online'=>$print_online,
+             'print_config_id'=>$print_config_id,
         ]);
     }
 
