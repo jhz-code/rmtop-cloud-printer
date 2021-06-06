@@ -8,11 +8,6 @@ use think\Exception;
 
 class FeierCloudPrint extends FeierClient
 {
-    public string $ip = '';
-    public string $port = '';
-    public string $path = "" ;
-
-
 
     /**
      * [批量添加打印机接口 Open_printerAddlist]
