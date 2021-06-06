@@ -10,10 +10,7 @@
 namespace RmTop\RmPrinter\facade;
 
 
-use RmTop\RmPrinter\model\PrinterConfigModel;
-use RmTop\RmPrinter\model\PrinterModel;
 use think\Facade;
-use think\Model;
 
 /**
  *@method static  createConfig($config) 创建配置项
@@ -27,11 +24,11 @@ use think\Model;
  *
  */
 
-class FeierCloudPrint extends Facade
+class TopPrinterManage extends Facade
 {
     protected static function getFacadeClass()
     {
-        return 'RmTop\RmPrinter\lib\feier\FeierCloudPrint';
+        return 'RmTop\RmPrinter\core\TopPrinterManage';
     }
 
 }
