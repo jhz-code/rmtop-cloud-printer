@@ -22,7 +22,7 @@ rm_cloud_printer_config  //打印机配置表  <br>
 ### 打印机操作方法：
 
 
-#####打印机管理操作方法
+#####打印机管理操作方法<br>
 createConfig($config) //创建配置项 <br>
 editConfig(int $id,array $config) //编辑配置项 <br>
 deleteConfig(int $id)  //删除配置项<br>
@@ -34,7 +34,7 @@ getPrinterList(string $field,array $where,int $limit = 10) //获取打印机列�
 getPrintInfo(int $printer_id,string $field) //获取单个打印机信息`<br>
 
 
-#####飞鹅打印机操作方法
+#####飞鹅打印机操作方法<br>
 allPrinterRun(string $type,bool $job = false, array $where ,string $filed,$content,int $times) //全部打印机打印<br><br>
 singlePrinter(string $type,bool $job = false,array $where,$content,int $times)//单独打印机打印
 
