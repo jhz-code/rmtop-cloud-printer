@@ -9,10 +9,12 @@
 
 namespace RmTop\RmPrinter\core;
 
+use RmTop\RmPrinter\model\PrinterConfigModel;
 use RmTop\RmPrinter\model\PrinterModel;
 use think\db\exception\DataNotFoundException;
 use think\db\exception\DbException;
 use think\db\exception\ModelNotFoundException;
+use think\Exception;
 use think\Model;
 
 /**
@@ -22,12 +24,49 @@ use think\Model;
  */
 class TopPrinterManage
 {
+
+
+    /**
+     * 创建配置项
+     * @param $config
+     * @return PrinterConfigModel|Model
+     */
+    function createConfig($config){
+       return  PrinterConfigModel::create($config);
+    }
+
+    /**编辑配置项
+     * @param int $id
+     * @param array $config
+     * @return PrinterConfigModel
+     */
+    function editConfig(int $id,array $config){
+      return  PrinterConfigModel::where(['id'=>$id])->update(['config_text'=>json_encode($config)]);
+    }
+
+
+    /**
+     * @param int $id
+     * @return bool
+     * 删除配置
+     * @throws Exception
+     */
+    function deleteConfig(int $id): bool
+    {
+        if(PrinterModel::where(['print_config_id'=>$id])->count() == 0){
+            return  PrinterConfigModel::where(['id'=>$id])->delete();
+        }else{
+            throw new Exception("此配置项下存在打印机,请修改打印机配置项后再删除此");
+        }
+    }
+
+
     /**
      * 创建打印机
      * @param string $print_type 打印机类型
      * @param string $print_title 打印机名称
      * @param string $print_sn 打印机编号
-     * @param $print_extra   打印机配置
+     * @param $print_extra   打印机额外项
      * @param int $print_state 打印机状态
      * @param int $print_online 打印在线状态
      * @return PrinterModel|Model //
@@ -37,8 +76,7 @@ class TopPrinterManage
          int $print_state,
          int $print_online,
          int $print_config_id
-       ){
-        return PrinterModel::create([
+       ){ return PrinterModel::create([
              'print_title'=>$print_title,
              'print_type'=>$print_type,
              'print_sn'=>$print_sn,
