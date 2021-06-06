@@ -9,7 +9,7 @@ use think\Exception;
 class FeierCloudPrint extends FeierClient
 {
 
-    public int $printerConfigId = 0;
+    public  $printerConfigId = 0;
 
     /**
      * 设置打印机ID
