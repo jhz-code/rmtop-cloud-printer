@@ -39,7 +39,7 @@ allPrinterRun(string $type,bool $job = false, array $where ,string $filed,$conte
 singlePrinter(string $type,bool $job = false,array $where,$content,int $times)//单独打印机打印
 
 
-###参数说明:
+###参数说明:<br>
 $type  receipt 小票打印｜ label 标签打印 <br>
 $job  bool   true queue列队打印    false 直接打印<br>
 $where  筛选打印机条件<br>
