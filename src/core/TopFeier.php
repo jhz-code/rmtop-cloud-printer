@@ -63,6 +63,7 @@ class TopFeier
     }
 
 
+
     /**
      *
      * @param string $type 打印类型｜receipt 小票 ｜ 标签 Label
