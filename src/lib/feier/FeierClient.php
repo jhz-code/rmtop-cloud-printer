@@ -54,11 +54,10 @@ class FeierClient
 
 
     /**
-     * @param int $printer_id
+     * @param int $printerConfigId
      * @param string $apiName
      * @param array $param
      * @return string
-     * @throws Exception
      */
     function requestClient(int $printerConfigId ,string $apiName,array $param): string
     {
