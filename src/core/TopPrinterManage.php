@@ -24,11 +24,27 @@ class TopPrinterManage
 {
     /**
      * 创建打印机
-     * @param array $data
-     * @return PrinterModel|Model
+     * @param string $print_type 打印机类型
+     * @param string $print_title 打印机名称
+     * @param string $print_sn 打印机编号
+     * @param $print_extra   打印机配置
+     * @param int $print_state 打印机状态
+     * @param int $print_online 打印在线状态
+     * @return PrinterModel|Model //
      */
-    function addPrinter(array $data){
-        return PrinterModel::create($data);
+    function addPrinter(string $print_type, string $print_title, string $print_sn,
+         $print_extra,
+         int $print_state,
+         int $print_online
+       ){
+        return PrinterModel::create([
+             'print_title'=>$print_title,
+             'print_type'=>$print_type,
+             'print_sn'=>$print_sn,
+             'print_extra'=>$print_extra,
+             'print_state'=>$print_state,
+             'print_online'=>$print_online,
+        ]);
     }
 
 

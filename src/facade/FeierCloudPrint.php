@@ -13,7 +13,6 @@ namespace RmTop\RmPrinter\facade;
 use think\Facade;
 
 
-
 class FeierCloudPrint extends Facade
 {
     protected static function getFacadeClass()
