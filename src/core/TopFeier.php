@@ -52,7 +52,9 @@ class TopFeier
                     Queue::push(PrinterJob::class,$item);
                 }else{
                 //直接打印
+                    $printer->setPrinterId($item['id']);//设置打印机ID 读取配置信息
                     if($type == 'receipt'){
+
                         $printer->printReceipt($item['print_sn'],$content,$times);
                     }else if($type == 'label'){
                         $printer->printLabel($item['print_sn'],$content,$times);
@@ -79,6 +81,7 @@ class TopFeier
          $printerInfo = PrinterModel::where($where)->find();
          if($printerInfo){
              $printer = new FeierCloudPrint();
+             $printer->setPrinterId($printerInfo['id']);//设置打印机ID 读取配置信息
              //列队操作
              if($job){
                  $item['type'] = $type ;
