@@ -34,12 +34,12 @@ getPrinterList(string $field,array $where,int $limit = 10) //获取打印机列�
 getPrintInfo(int $printer_id,string $field) //获取单个打印机信息`<br>
 
 
-#####飞鹅打印机操作方法<br>
+###飞鹅打印机操作方法<br>
 allPrinterRun(string $type,bool $job = false, array $where ,string $filed,$content,int $times) //全部打印机打印<br><br>
 singlePrinter(string $type,bool $job = false,array $where,$content,int $times)//单独打印机打印
 
 
-#####参数说明:
+###参数说明:
 $type  receipt 小票打印｜ label 标签打印 <br>
 $job  bool   true queue列队打印    false 直接打印<br>
 $where  筛选打印机条件<br>
