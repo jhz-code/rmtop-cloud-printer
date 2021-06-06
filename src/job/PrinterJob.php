@@ -49,7 +49,7 @@ class PrinterJob
     {
         //直接打印
         $printer = new FeierCloudPrint();
-        $printer->setPrinterId($data['id']);//设置打印机ID 配置打印机信息
+        $printer->setPrinterId($data['print_config_id']);//设置打印机ID 配置打印机信息
         if('receipt' == $data['type']){
             $printer->printReceipt($data['print_sn'],$data['content'],$data['times']);
         }else if('label' == $data['type']){

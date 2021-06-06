@@ -37,9 +37,9 @@ class FeierClient
     /**
      * 获取配置项
      */
-    function getConfig(int $printer_id): array
+    function getConfig(int $printerConfigId): array
     {
-        $config = PrinterConfigModel::where(['cloud_printer_id'=>$printer_id])->value('config_text');
+        $config = PrinterConfigModel::where(['id'=>$printerConfigId])->value('config_text');
         $config = json_decode($config);
         $this->ip = $config['ip'];
         $this->port = $config['port'];
@@ -60,10 +60,10 @@ class FeierClient
      * @return string
      * @throws Exception
      */
-    function requestClient(int $printer_id ,string $apiName,array $param): string
+    function requestClient(int $printerConfigId ,string $apiName,array $param): string
     {
         //获取打印机配置
-        $params = $this->getConfig($printer_id);
+        $params = $this->getConfig($printerConfigId);
         $params['apiname'] = $apiName;
         $postData = array_merge($params,$param);
         $client = new HttpClient($this->ip,$this->port);
