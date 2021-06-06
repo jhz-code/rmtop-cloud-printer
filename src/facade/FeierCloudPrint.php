@@ -16,14 +16,14 @@ use think\Facade;
 use think\Model;
 
 /**
- *@method static PrinterConfigModel|Model createConfig($config) 创建配置项
- *@method static PrinterConfigModel editConfig(int $id,array $config) 编辑配置项
- *@method static bool  deleteConfig(int $id) 删除配置项
- *@method static PrinterModel|Model addPrinter(string $print_type, string $print_title, string $print_sn,$print_extra,int $print_state,int $print_online,int $print_config_id)
- *@method static bool deletePrinter(int $printer_id) //删除打印机
- *@method static PrinterModel editPrinter(int $printer_id,array $data) //编辑打印机
- *@method static \think\Paginator getPrinterList(string $field,array $where,int $limit = 10) //获取打印机列表
- *@method static array|Model|null getPrintInfo(int $printer_id,string $field)
+ *@method static  createConfig($config) 创建配置项
+ *@method static  editConfig(int $id,array $config) 编辑配置项
+ *@method static   deleteConfig(int $id) 删除配置项
+ *@method static  addPrinter(string $print_type, string $print_title, string $print_sn,$print_extra,int $print_state,int $print_online,int $print_config_id)
+ *@method static  deletePrinter(int $printer_id) //删除打印机
+ *@method static  editPrinter(int $printer_id,array $data) //编辑打印机
+ *@method static  getPrinterList(string $field,array $where,int $limit = 10) //获取打印机列表
+ *@method static  getPrintInfo(int $printer_id,string $field)
  *
  */
 
