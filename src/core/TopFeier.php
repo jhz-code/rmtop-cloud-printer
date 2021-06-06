@@ -54,7 +54,6 @@ class TopFeier
                 //直接打印
                     $printer->setPrinterId($item['id']);//设置打印机ID 读取配置信息
                     if($type == 'receipt'){
-
                         $printer->printReceipt($item['print_sn'],$content,$times);
                     }else if($type == 'label'){
                         $printer->printLabel($item['print_sn'],$content,$times);

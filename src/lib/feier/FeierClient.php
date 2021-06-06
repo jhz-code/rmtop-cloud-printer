@@ -67,8 +67,9 @@ class FeierClient
         $params['apiname'] = $apiName;
         $postData = array_merge($params,$param);
         $client = new HttpClient($this->ip,$this->port);
-        if(!$res = $client->post($this->path,$postData)){
-            throw  new Exception($res);
+        $res = $client->post($this->path,$postData);
+        if(!$res){
+            return $res;
         }else{
             return $client->getContent();
         }
