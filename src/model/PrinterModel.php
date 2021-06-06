@@ -9,7 +9,6 @@
 
 namespace RmTop\RmPrinter\model;
 
-
 use think\Model;
 
 class PrinterModel extends Model
