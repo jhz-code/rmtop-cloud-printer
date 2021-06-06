@@ -47,6 +47,8 @@ class TopFeier
                 //列队操作
                 if($job){
                     $item['type'] = $type ;
+                    $item['content'] = $content ;
+                    $item['times'] = $times ;
                     Queue::push(PrinterJob::class,$item);
                 }else{
                 //直接打印
