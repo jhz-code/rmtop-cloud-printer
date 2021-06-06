@@ -1,5 +1,8 @@
 # rmtop-cloud_printer
- 
+
+安装打印机插件 
+
+composer require rmtop/rmsf_cloud_printer
 
 ### 发布打印机文件
 
