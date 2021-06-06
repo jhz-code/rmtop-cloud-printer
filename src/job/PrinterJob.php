@@ -49,9 +49,9 @@ class PrinterJob
     {
         //直接打印
         $printer = new FeierCloudPrint();
-        if('receipt' == $data['receipt']){
+        if('receipt' == $data['type']){
             $printer->printReceipt($data['print_sn'],$data['content'],$data['times']);
-        }else if('label' == $data['label']){
+        }else if('label' == $data['type']){
             $printer->printReceipt($data['print_sn'],$data['content'],$data['times']);
         }
         return true;

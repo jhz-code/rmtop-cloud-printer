@@ -15,12 +15,14 @@ use think\Exception;
 class FeierClient
 {
 
-    public string $ip = '';
-    public string $port = '';
-    public string $path = "" ;
-    public string $user = "" ;
-    public string $key = "" ;
-
+     public   function __construct()
+     {
+         $this->ip = config('');
+         $this->port = config('');
+         $this->path = config('');
+         $this->user = config('');
+         $this->key = config('');
+     }
 
 
     /**
@@ -28,7 +30,7 @@ class FeierClient
      */
     function getConfig(): array
     {
-        $config['user'] = $this->user;
+        $config['user'] =  $this->user;
         $config['stime'] = time();
         $config['sig'] = $this->signature($config['stime']);
         return $config;

@@ -12,6 +12,8 @@ class FeierCloudPrint extends FeierClient
     public string $port = '';
     public string $path = "" ;
 
+
+
     /**
      * [批量添加打印机接口 Open_printerAddlist]
      * @param  [string] $printerContent [打印机的sn#key]
