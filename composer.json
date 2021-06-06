@@ -3,7 +3,8 @@
     "description": "printer manage",
     "require": {
         "topthink/think-migration": "^3.0",
-        "topthink/think-queue": "^3.0"
+        "topthink/think-queue": "^3.0",
+      "ext-json": "*"
     },
     "autoload": {
         "psr-4": {

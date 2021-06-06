@@ -10,26 +10,42 @@
 namespace RmTop\RmPrinter\lib\feier;
 
 
+use RmTop\RmPrinter\model\PrinterConfigModel;
 use think\Exception;
 
 class FeierClient
 {
 
-     public   function __construct()
-     {
-         $this->ip = config('');
-         $this->port = config('');
-         $this->path = config('');
-         $this->user = config('');
-         $this->key = config('');
-     }
-
+    private $ip;
+    /**
+     * @var mixed
+     */
+    private $port;
+    /**
+     * @var mixed
+     */
+    private $path;
+    /**
+     * @var mixed
+     */
+    private $user;
+    /**
+     * @var mixed
+     */
+    private $key;
 
     /**
      * 获取配置项
      */
-    function getConfig(): array
+    function getConfig(int $printer_id): array
     {
+        $config = PrinterConfigModel::where(['cloud_printer_id'=>$printer_id])->value('config_text');
+        $config = json_decode($config);
+        $this->ip = $config['ip'];
+        $this->port = $config['port'];
+        $this->path = $config['path'];
+        $this->user = $config['user'];
+        $this->key = $config['key'];
         $config['user'] =  $this->user;
         $config['stime'] = time();
         $config['sig'] = $this->signature($config['stime']);
@@ -38,16 +54,18 @@ class FeierClient
 
 
     /**
-     * @param string $apiname
+     * @param int $printer_id
+     * @param string $apiName
      * @param array $param
      * @return string
      * @throws Exception
      */
-    function requestClient(string $apiName,array $param)
+    function requestClient(int $printer_id ,string $apiName,array $param): string
     {
-        $params = $this->getConfig();
+        //获取打印机配置
+        $params = $this->getConfig($printer_id);
         $params['apiname'] = $apiName;
-        $postData = array_map($params,$param);
+        $postData = array_merge($params,$param);
         $client = new HttpClient($this->ip,$this->port);
         if(!$res = $client->post($this->path,$postData)){
             throw  new Exception($res);

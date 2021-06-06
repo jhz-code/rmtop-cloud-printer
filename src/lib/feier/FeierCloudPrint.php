@@ -9,6 +9,17 @@ use think\Exception;
 class FeierCloudPrint extends FeierClient
 {
 
+    public $printerId = '' ;
+
+    /**
+     * 设置打印机ID
+     * @param int $printerId
+     */
+    function setPrinterId(int $printerId){
+        $this->printerId = $printerId;
+    }
+
+
     /**
      * [批量添加打印机接口 Open_printerAddlist]
      * @param  [string] $printerContent [打印机的sn#key]
@@ -20,7 +31,7 @@ class FeierCloudPrint extends FeierClient
     function printerAddlist(string $printerContent): string
     {
         $param = array(['printerContent'=>$printerContent]);
-        return  $this->requestClient('Open_printerAddlist',$param);
+        return  $this->requestClient($this->printerId,'Open_printerAddlist',$param);
     }
     //***接口返回值说明***
     //正确例子：{"msg":"ok","ret":0,"data":{"ok":["sn#key#remark#carnum","316500011#abcdefgh#快餐前台"],"no":["316500012#abcdefgh#快餐前台#13688889999  （错误：识别码不正确）"]},"serverExecutedTime":3}
@@ -36,7 +47,7 @@ class FeierCloudPrint extends FeierClient
      */
     function printerDelList(string $snlist){
         $param = array(['snlist'=>$snlist]);
-        return  $this->requestClient('Open_printerDelList',$param);
+        return  $this->requestClient($this->printerId,'Open_printerDelList',$param);
     }
 
 
@@ -51,7 +62,7 @@ class FeierCloudPrint extends FeierClient
     function printerEdit($sn,$name,$phonenum): string
     {
         $param = array(['sn'=>$sn, 'name'=>$name,'phonenum'=>$phonenum]);
-        return  $this->requestClient('Open_printMsg',$param);
+        return  $this->requestClient($this->printerId,'Open_printMsg',$param);
     }
     //***接口返回值说明***
     //成功：{"msg":"ok","ret":0,"data":true,"serverExecutedTime":5}
@@ -71,7 +82,7 @@ class FeierCloudPrint extends FeierClient
     function printReceipt($sn,$content,$times): string
     {
         $param = array(['sn'=>$sn, 'content'=>$content,'times'=>$times]);
-        return  $this->requestClient('Open_printMsg',$param);
+        return  $this->requestClient($this->printerId,'Open_printMsg',$param);
     }
     //***接口返回值说明***
     //正确例子：{"msg":"ok","ret":0,"data":"123456789_20160823165104_1853029628","serverExecutedTime":6}
@@ -107,7 +118,7 @@ class FeierCloudPrint extends FeierClient
     function printLabel($sn,$content,$times): string
     {
         $param = array(['sn'=>$sn, 'content'=>$content,'times'=>$times]);
-        return  $this->requestClient('Open_printLabelMsg',$param);
+        return  $this->requestClient($this->printerId,'Open_printLabelMsg',$param);
     }
     //***接口返回值说明***
     //正确例子：{"msg":"ok","ret":0,"data":"123456789_20160823165104_1853029628","serverExecutedTime":6}
@@ -127,7 +138,7 @@ class FeierCloudPrint extends FeierClient
     function cleanPrintList(string $sn): string
     {
         $param = array(['sn'=>$sn]);
-        return  $this->requestClient('Open_delPrinterSqs',$param);
+        return  $this->requestClient($this->printerId,'Open_delPrinterSqs',$param);
     }
     //***接口返回值说明***
     //成功：{"msg":"ok","ret":0,"data":true,"serverExecutedTime":4}
@@ -146,7 +157,7 @@ class FeierCloudPrint extends FeierClient
     function checkPrintOrder(string $orderid): string
     {
         $param = array(['orderid'=>$orderid]);
-        return  $this->requestClient('Open_queryOrderState',$param);
+        return  $this->requestClient($this->printerId,'Open_queryOrderState',$param);
     }
     //正确例子：
     //已打印：{"msg":"ok","ret":0,"data":true,"serverExecutedTime":6}
@@ -163,7 +174,7 @@ class FeierCloudPrint extends FeierClient
     function findOrderInfoByDate($sn,$date): string
     {
         $param = array(['sn'=>$sn,'date'=>$date]);
-        return  $this->requestClient('Open_queryOrderInfoByDate',$param);
+        return  $this->requestClient($this->printerId,'Open_queryOrderInfoByDate',$param);
     }
     //***接口返回值说明***
     //正确例子：
@@ -181,7 +192,7 @@ class FeierCloudPrint extends FeierClient
     function getPrinterStatus(string  $sn): string
     {
         $param = array(['sn'=>$sn]);
-        return  $this->requestClient('Open_queryPrinterStatus',$param);
+        return  $this->requestClient($this->printerId,'Open_queryPrinterStatus',$param);
     }
     //正确例子：
     //{"msg":"ok","ret":0,"data":"离线","serverExecutedTime":9}
