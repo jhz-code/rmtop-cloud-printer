@@ -3,7 +3,7 @@
     "description": "printer manage",
     "require": {
         "topthink/think-migration": "^3.0",
-      "ext-zlib": "*"
+        "topthink/think-queue": "^3.0"
     },
     "autoload": {
         "psr-4": {
